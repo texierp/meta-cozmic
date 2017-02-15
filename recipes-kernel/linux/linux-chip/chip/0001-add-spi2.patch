@@ -1,0 +1,25 @@
+From 7c8d793330f37aabe0a733a4cfc044495057575b Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+Date: Fri, 3 Feb 2017 23:36:03 +0100
+Subject: [PATCH] add spi2
+
+Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+---
+ arch/arm/boot/dts/sun5i-r8-chip.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/boot/dts/sun5i-r8-chip.dts b/arch/arm/boot/dts/sun5i-r8-chip.dts
+index e223d0f..42cf0fc 100644
+--- a/arch/arm/boot/dts/sun5i-r8-chip.dts
++++ b/arch/arm/boot/dts/sun5i-r8-chip.dts
+@@ -58,6 +58,7 @@
+ 		i2c0 = &i2c0;
+ 		i2c1 = &i2c1;
+ 		i2c2 = &i2c2;
++		spi2 = &spi2;
+ 		serial0 = &uart1;
+ 		serial1 = &uart3;
+ 	};
+-- 
+1.9.1
+

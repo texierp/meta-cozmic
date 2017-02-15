@@ -1,0 +1,72 @@
+From 9c455425c69e801207f3b0f02ca49401dbcd72a7 Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+Date: Sat, 4 Feb 2017 22:25:17 +0100
+Subject: [PATCH] ad525x_dpot-spi Add device tree support
+
+Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+---
+ drivers/misc/ad525x_dpot-spi.c | 38 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 37 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/misc/ad525x_dpot-spi.c b/drivers/misc/ad525x_dpot-spi.c
+index 39a7f51..664eafa 100644
+--- a/drivers/misc/ad525x_dpot-spi.c
++++ b/drivers/misc/ad525x_dpot-spi.c
+@@ -8,7 +8,7 @@
+ 
+ #include <linux/spi/spi.h>
+ #include <linux/module.h>
+-
++#include <linux/of.h>
+ #include "ad525x_dpot.h"
+ 
+ /* SPI bus functions */
+@@ -129,9 +129,45 @@ static const struct spi_device_id ad_dpot_spi_id[] = {
+ };
+ MODULE_DEVICE_TABLE(spi, ad_dpot_spi_id);
+ 
++#ifdef CONFIG_OF
++static const struct of_device_id ad_dpot_of_match[] = {
++	{ .compatible = "adi,ad5160", .data = (void *) AD5160_ID, },
++	{ .compatible = "adi,ad5161", .data = (void *) AD5161_ID, },
++	{ .compatible = "adi,ad5162", .data = (void *) AD5162_ID, },
++	{ .compatible = "adi,ad5165", .data = (void *) AD5165_ID, },
++	{ .compatible = "adi,ad5200", .data = (void *) AD5200_ID, },
++	{ .compatible = "adi,ad5201", .data = (void *) AD5201_ID, },
++	{ .compatible = "adi,ad5203", .data = (void *) AD5203_ID, },
++	{ .compatible = "adi,ad5204", .data = (void *) AD5204_ID, },
++	{ .compatible = "adi,ad5206", .data = (void *) AD5206_ID, },
++	{ .compatible = "adi,ad5207", .data = (void *) AD5207_ID, },
++	{ .compatible = "adi,ad5231", .data = (void *) AD5231_ID, },	
++	{ .compatible = "adi,ad5232", .data = (void *) AD5232_ID, },
++	{ .compatible = "adi,ad5233", .data = (void *) AD5233_ID, },	
++	{ .compatible = "adi,ad5235", .data = (void *) AD5235_ID, },
++	{ .compatible = "adi,ad5260", .data = (void *) AD5260_ID, },
++	{ .compatible = "adi,ad5262", .data = (void *) AD5262_ID, },
++	{ .compatible = "adi,ad5263", .data = (void *) AD5263_ID, },
++	{ .compatible = "adi,ad5290", .data = (void *) AD5290_ID, },	
++	{ .compatible = "adi,ad5291", .data = (void *) AD5291_ID, },
++	{ .compatible = "adi,ad5292", .data = (void *) AD5292_ID, },	
++	{ .compatible = "adi,ad5293", .data = (void *) AD5293_ID, },
++	{ .compatible = "adi,ad7376", .data = (void *) AD7376_ID, },
++	{ .compatible = "adi,ad8400", .data = (void *) AD8400_ID, },
++	{ .compatible = "adi,ad8402", .data = (void *) AD8402_ID, },	
++	{ .compatible = "adi,ad8403", .data = (void *) AD8403_ID, },
++	{ .compatible = "adi,adn2850", .data = (void *) ADN2850_ID, },
++	{ .compatible = "adi,ad5270", .data = (void *) AD5270_ID, },
++	{ .compatible = "adi,ad5271", .data = (void *) AD5271_ID, },	
++	{/* Sentinel */}
++};
++MODULE_DEVICE_TABLE(of, ad_dpot_of_match);
++#endif
++
+ static struct spi_driver ad_dpot_spi_driver = {
+ 	.driver = {
+ 		.name	= "ad_dpot",
++		.of_match_table	= of_match_ptr(ad_dpot_of_match),
+ 	},
+ 	.probe		= ad_dpot_spi_probe,
+ 	.remove		= ad_dpot_spi_remove,
+-- 
+1.9.1
+

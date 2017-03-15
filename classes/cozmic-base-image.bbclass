@@ -1,7 +1,7 @@
 DESCRIPTION = "Basic image"
 LICENSE = "MIT"
 
-# set password to ingesup
+# set password to cozmic
 inherit extrausers
 EXTRA_USERS_PARAMS = " \
     usermod -P cozmic root; \
@@ -32,6 +32,7 @@ CORE_OS_INSTALL = " \
 	bc \
     	dbus \
     	bluez5 \
+    	canutils \
     	sysfsutils \ 	
     	kernel-image \
         kernel-modules \
@@ -49,6 +50,15 @@ IMAGE_INSTALL += " \
 	${HOTSPOT_INSTALL} \
 	packagegroup-tools-io \
     	${CORE_IMAGE_EXTRA_INSTALL} \
+"
+
+create_overlay_directory() {
+    	mkdir -p ${IMAGE_ROOTFS}/lib/firmware/nextthingco/chip
+    	mkdir -p ${IMAGE_ROOTFS}/lib/firmware/nextthingco/chip/early
+}
+
+ROOTFS_POSTPROCESS_COMMAND += " \
+    	create_overlay_directory ; \
 "
 
 # some default locales

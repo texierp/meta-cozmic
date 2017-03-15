@@ -9,7 +9,7 @@ SRC_URI = " \
 	"
 
 SRCREV = "61da67aa01e584ac8ddae1c795cce0f0805c7dfb"
-PV = "2.8.6+${SRCPV}"
+
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
@@ -17,11 +17,10 @@ EXTRA_OECONF = " \
 	--with-stdout \
     	--with-ssl=openssl \
     	--with-avahi \
-    	--with-soxr \
     	--with-metadata \
 "
 
-DEPENDS = " libconfig popt avahi openssl alsa-lib libsoxr"
+DEPENDS = " libconfig popt avahi openssl alsa-lib"
 
 inherit autotools pkgconfig update-rc.d
 
@@ -37,4 +36,4 @@ do_install() {
 }
 
 INITSCRIPT_NAME = "shairport-sync"
-INITSCRIPT_PARAMS = "start 99 5 2 . stop 19 0 1 6 ."
+INITSCRIPT_PARAMS = "defaults"

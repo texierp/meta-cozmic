@@ -42,6 +42,8 @@ CORE_OS_INSTALL = " \
 IMAGE_INSTALL += " \
 	${CORE_OS_INSTALL} \
 	psplash \
+	lradc \
+	overlays \
 	clicks-board-init \
 	openssh-sftp-server \
 	packagegroup-distro-base \
@@ -50,15 +52,6 @@ IMAGE_INSTALL += " \
 	${HOTSPOT_INSTALL} \
 	packagegroup-tools-io \
     	${CORE_IMAGE_EXTRA_INSTALL} \
-"
-
-create_overlay_directory() {
-    	mkdir -p ${IMAGE_ROOTFS}/lib/firmware/nextthingco/chip
-    	mkdir -p ${IMAGE_ROOTFS}/lib/firmware/nextthingco/chip/early
-}
-
-ROOTFS_POSTPROCESS_COMMAND += " \
-    	create_overlay_directory ; \
 "
 
 # some default locales

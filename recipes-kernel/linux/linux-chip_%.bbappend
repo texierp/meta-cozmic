@@ -13,8 +13,8 @@ KERNEL_MODULE_AUTOLOAD += " \
 			dht11 \
 			enc28j60 \
 			mpl3115 \
-			can_mcp251x \
+			mcp251x \
 			sun4i_lradc \
 			mcp4725 \
-			ds1631 \
+			ds1621 \
 			"

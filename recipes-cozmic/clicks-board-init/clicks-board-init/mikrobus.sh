@@ -18,7 +18,6 @@ for gpio in $(ls -d ${exporter}/out_*)
 do
 	ln -s ${gpio}/value /dev/mikrobus/$(basename ${gpio})
 done
-:wq
 
 for gpio in $(ls -d ${exporter}/in_*)
 do

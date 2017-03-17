@@ -16,5 +16,6 @@ KERNEL_MODULE_AUTOLOAD += " \
 			mcp251x \
 			sun4i_lradc \
 			mcp4725 \
+			mcp320X \
 			ds1621 \
 			"

@@ -17,13 +17,7 @@ do_install() {
         install -d ${D}/lib/firmware/nextthingco/chip
         install -d ${D}/lib/firmware/nextthingco/chip/early
         
-        install -m 0755 ${S}/adc-click.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/can-click.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/eth-click.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/dac3-click.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/ds1631.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/dip-7e1-1.dtbo ${D}/lib/firmware/nextthingco/chip/
-        install -m 0755 ${S}/dip-7e1-2.dtbo ${D}/lib/firmware/nextthingco/chip/
+        install -m 0755 ${S}/*.dtbo ${D}/lib/firmware/nextthingco/chip/
         
         install -m 0755 ${S}/overlay ${D}${bindir}
 }

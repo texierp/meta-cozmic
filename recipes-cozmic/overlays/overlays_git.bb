@@ -14,13 +14,16 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}${bindir}
+	install -d ${D}/lib/firmware/cozmic/eeprom
         install -d ${D}/lib/firmware/nextthingco/chip
         install -d ${D}/lib/firmware/nextthingco/chip/early
         
+        install -m 0755 ${S}/*.img ${D}/lib/firmware/cozmic/eeprom/
         install -m 0755 ${S}/*.dtbo ${D}/lib/firmware/nextthingco/chip/
+        install -m 0755 ${S}/dip-7e1* ${D}/lib/firmware/nextthingco/chip/early
         
         install -m 0755 ${S}/overlay ${D}${bindir}
 }
 
-FILES_${PN} += "/lib/firmware/nextthingco/chip/ /lib/firmware/nextthingco/chip/early"
+FILES_${PN} += "/lib/firmware/nextthingco/chip/ /lib/firmware/nextthingco/chip/early /lib/firmware/cozmic/eeprom/"
 

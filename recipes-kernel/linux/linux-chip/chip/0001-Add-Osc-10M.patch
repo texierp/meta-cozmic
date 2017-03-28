@@ -1,7 +1,7 @@
-From bfaff5ded919c6d872c5954ee4664c83863ccb2f Mon Sep 17 00:00:00 2001
+From c57cf712caaf9e9826c593e46687506dd5834162 Mon Sep 17 00:00:00 2001
 From: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
-Date: Thu, 16 Feb 2017 21:40:03 +0100
-Subject: [PATCH] Add osc14M clock
+Date: Tue, 28 Mar 2017 17:38:05 +0200
+Subject: [PATCH] Add Osc 10M
 
 Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
  1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm/boot/dts/sun5i.dtsi b/arch/arm/boot/dts/sun5i.dtsi
-index 36b69ab..dbc14d4 100644
+index 36b69ab..7bccf42 100644
 --- a/arch/arm/boot/dts/sun5i.dtsi
 +++ b/arch/arm/boot/dts/sun5i.dtsi
 @@ -79,6 +79,12 @@
@@ -17,10 +17,10 @@ index 36b69ab..dbc14d4 100644
  			clock-frequency = <0>;
  		};
 +		
-+		osc14M: osc14M_clk {
++		osc10M: osc10M_clk {
 +			#clock-cells = <0>;
 +			compatible = "fixed-clock";
-+			clock-frequency = <14745600>;
++			clock-frequency = <10000000>;
 +		};
  
  		osc24M: clk@01c20050 {

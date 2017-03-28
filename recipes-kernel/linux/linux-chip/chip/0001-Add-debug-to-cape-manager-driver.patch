@@ -1,0 +1,33 @@
+From 5a312a7be109ec4e870d9c825f1edb63c7683ffe Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+Date: Tue, 21 Mar 2017 21:29:05 +0100
+Subject: [PATCH] Add debug to cape manager driver
+
+Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+---
+ drivers/misc/cape-manager/cape-manager.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/misc/cape-manager/cape-manager.c b/drivers/misc/cape-manager/cape-manager.c
+index 4ab7ca7..7639004 100644
+--- a/drivers/misc/cape-manager/cape-manager.c
++++ b/drivers/misc/cape-manager/cape-manager.c
+@@ -162,7 +162,6 @@ void dip_manager_insert(struct device *dev, struct dip_header *header)
+ 	header->vendor_name[31] = '\0';
+ 	header->product_name[31] = '\0';
+ 
+-#if 0
+ 	/* debug */
+ 	pr_err("magic: 0x%x\n", dip_convert(header->magic));
+ 	pr_err("version: %d\n", dip_convert(header->version));
+@@ -171,7 +170,6 @@ void dip_manager_insert(struct device *dev, struct dip_header *header)
+ 	pr_err("product version: %d\n", dip_convert(header->product_version));
+ 	pr_err("vendor name: %s\n", header->vendor_name);
+ 	pr_err("product name: %s\n", header->product_name);
+-#endif
+ 
+ 	spin_lock(&dip_lock);
+ 
+-- 
+1.9.1
+

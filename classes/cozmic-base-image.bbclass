@@ -42,6 +42,8 @@ CORE_OS_INSTALL = " \
 IMAGE_INSTALL += " \
 	${CORE_OS_INSTALL} \
 	psplash \
+	swupdate \
+	swupdate-www \
 	lradc \
 	overlays \
 	clicks-board-init \

@@ -4,6 +4,7 @@ SRC_URI_append_chip += " \
 	file://0001-add-spi2.patch \
 	file://0001-Add-Osc-10M.patch \
 	file://0001-ad525x_dpot-spi-Add-device-tree-support.patch \
+	file://0001-ad525x_dpot-i2c-Add-device-tree-support.patch \
 	file://0001-Backport-mcp4725-driver.patch \
 	file://0001-Add-debug-to-cape-manager-driver.patch \
 	file://0001-Add-potentiometers-backport-from-Kernel-4.10.patch \

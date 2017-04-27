@@ -37,6 +37,7 @@ CORE_OS_INSTALL = " \
     	kernel-image \
         kernel-modules \
         kernel-devicetree \
+        u-boot-fw-utils \
 "
 
 IMAGE_INSTALL += " \

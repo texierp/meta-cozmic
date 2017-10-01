@@ -31,6 +31,8 @@ ALSA_INSTALL = " \
 CORE_OS_INSTALL = " \
 	bc \
     	dbus \
+    	ppp \
+    	hologram-tools \
     	bluez5 \
     	canutils \
     	sysfsutils \ 	
@@ -56,9 +58,6 @@ IMAGE_INSTALL += " \
 	packagegroup-tools-io \
     	${CORE_IMAGE_EXTRA_INSTALL} \
 "
-
-# some default locales
-IMAGE_LINGUAS ?= "fr-fr en-us"
 
 export IMAGE_BASENAME = "base-image"
 
